@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_main.c                                     :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 16:08:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/06 16:19:46 by yanaranj         ###   ########.fr       */
+/*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
+/*   Updated: 2024/05/06 16:27:55 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+int	check_name(char *map_path)
 {
-/*	t_vars	*var;
-	t_img	*img;
-
-	img = malloc(sizeof(t_img));
-	if (!img)
+	if (ft_strlen < 5)
 		return (0);
-	var = malloc(sizeof(t_vars));
-	if (!var)
-		return (free(img), 0);
-*/
-	if (ac == 2)
-	{
-		//realiza lo necesario
-	}
+	if (ft_strncmp(map_path, ".ber", 4) != 0)
+		return (0);
 	return (1);
 }

@@ -6,15 +6,15 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/06 16:20:24 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:42:51 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./libft/libft.h"
-#include "./minilibx/mlx.h"
+#include "my_libft/libft.h"
+#include "minilibx/mlx.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -35,5 +35,5 @@ typedef struct s_img
 	int	j;
 }		t_img;
 
-//		-- check_map.c--		//
+//		-- check_map.c-- (parsing de args)//
 
