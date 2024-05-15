@@ -33,7 +33,7 @@ typedef struct s_info
 	int		pos_h;
 	int		pos_w;
 	
-	char	*map;
+	char	**map;
 }		t_info;
 
 typedef struct s_img
@@ -44,19 +44,23 @@ typedef struct s_img
 	int	j;
 }		t_img;
 
-//		--SL_main.c--		//
 //		-- check_map.c-- (parsing de args)/
-int		check_map(char	*map_path);
+char	**get_final_map(int ac, char **av, t_info *game);
+void	fill_map(char **map, int y, int x, t_info *game);
+int		check_name(char	*map_path);
 char	**get_map(int ac, char **av, t_info *game);
 char	*get_raw_map(char *map_path);
 
 //		--errors.c--		//
+char	*free_map(char **map);
 void	exit_error(char *msg, int flag);
 
 //		--SL_utils.c--		//
 int		num_strchr(char *str, char c);
+int		map_strchr(char **map, char c);
+void	p_pos(t_info *game);
 
-//		--parsing_map--		//
+//		--parsing_map--		// OK
 int		final_map(char **map, t_info *game, char *raw_map);
 int		is_rectangular(char **map, t_info *game);
 int		is_closed(char *raw_map);

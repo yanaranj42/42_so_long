@@ -19,12 +19,12 @@ t_info	init_info(void)
 	game.height = 0;
 	game.width = 0;
 	game.collect = 0;
-	game->x = -1;
-	game->y = -1;
-	game->moves = 0;
-	game->pos_h = 32;
-	game->pos_w = 32;
-	game->map = NULL;
+	game.x = -1;
+	game.y = -1;
+	game.moves = 0;
+	game.pos_h = 32;
+	game.pos_w = 32;
+	game.map = NULL;
 	return (game);
 }
 

@@ -18,3 +18,14 @@ void	exit_error(char *msg, int flag)
 	write(2, msg, ft_strlen(msg));
 	exit(flag);
 }
+
+char	*free_map(char **map)
+{
+	int	j;
+
+	j = -1;
+	while (map[++j])
+		free(map[j]);
+	free(map);
+	return (0);
+}

@@ -53,11 +53,11 @@ char	**get_map(int ac, char **av, t_info *game)
 	if (ac != 2 || !check_name(av[1]))
 		exit_error("Invalid arguments\n", 1);
 	raw_map = get_raw_map(av[1]);
-	printf("GET_MAP_row: %s\n", raw_map);
+	printf("GET_MAP_row:\n%s\n", raw_map);
 	if (!raw_map)
 		exit_error("Error\n", 1);
 	map = ft_split(raw_map, '\n');
-	printf("GET_MAP_map: %s\n", map[0]);
+	//printf("GET_MAP_map: %s\n", map[0]);
 	if (!final_map(map, game, raw_map))
 	{
 		exit_error("Invalid map\n", 1);
@@ -71,11 +71,26 @@ void	fill_map(char **map, int y, int x, t_info *game)
 {
 	if (y < 0 || y > game->height || x < 0 || x > game->width\
 			|| map[y][x] == '1' || map[y][x] == 'F')
+			return ;
+	map[y][x] = 'F';
+	fill_map(map, x - 1, y, game);
+	fill_map(map, x + 1, y, game);
+	fill_map(map, x, y - 1, game);
+	fill_map(map, x, y + 1, game);
 }
 
-char	**final_map(int ac, char **av, t_info *game)
+char	**get_final_map(int ac, char **av, t_info *game)
 {
 	game->map = get_map(ac, av, game);
 	p_pos(game);
 	fill_map(game->map, game->y, game->x, game);
+	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
+	{
+		write(1, "Error\tInvalid Exit\n", 20);
+		free_map(game->map);
+		return (NULL);
+	}
+	free_map(game->map);
+	game->map = get_map(ac, av, game);
+	return (game->map);
 }

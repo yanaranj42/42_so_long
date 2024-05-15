@@ -115,7 +115,6 @@ int	min_type_char(char *raw_map, t_info *game)
 
 int	final_map(char **map, t_info *game, char *raw_map)
 {
-	(void)raw_map;
 	if (!is_rectangular(map, game))
 		return (0);
 	if (!is_closed(raw_map))
