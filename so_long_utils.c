@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 13:01:41 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/13 16:57:44 by yanaranj         ###   ########.fr       */
+/*   Created: 2024/05/15 15:15:58 by yanaranj          #+#    #+#             */
+/*   Updated: 2024/05/15 16:00:36 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
+#include "so_long.h"
 
-char	*get_next_line(int fd);
-char	*ft_free(char **s1, char **s2);
-char	*gnl_strchr(const char *s, int c);
-size_t	gnl_strlen(const char *c);
-char	*gnl_strjoin(char *s1, char *s2);
+int	num_strchr(char *str, char c)
+{
+	int	n;
 
-#endif
+	n = 0;
+	while (*str)
+	{
+		if (*str == (char)c)
+			n++;
+		str++;
+	}
+	return (n);
+}
+
+void	p_pos(t_info *game)
+{
+	while (game->map[++game->y])
+	{
+		game->x = 0;
+		while (game->map[game->y][++game->x])
+		{
+			if (game->map[game->y][game->x] == 'P')
+				break ;
+		}
+		if (game->map[game->y][game->x] == 'P')
+			break ;
+	}
+}

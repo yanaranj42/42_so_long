@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:01:28 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/01/19 12:34:41 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:54:28 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_free(char **s1, char **s2)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *c)
+size_t	gnl_strlen(const char *c)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ size_t	ft_strlen(const char *c)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	while (*s != '\0')
 	{
@@ -54,15 +54,15 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*join;
 	size_t	size1;
 	size_t	size2;
 	size_t	i;
 
-	size1 = ft_strlen(s1);
-	size2 = ft_strlen(s2);
+	size1 = gnl_strlen(s1);
+	size2 = gnl_strlen(s2);
 	if (!s1 && !s2)
 		return (NULL);
 	join = malloc(sizeof(char) * (size1 + size2 + 1));

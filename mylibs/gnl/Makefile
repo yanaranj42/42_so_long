@@ -6,7 +6,7 @@
 #    By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 13:08:42 by yanaranj          #+#    #+#              #
-#    Updated: 2024/05/08 18:34:57 by yanaranj         ###   ########.fr        #
+#    Updated: 2024/05/13 14:50:59 by yanaranj         ###   ########.fr        #
 #                                                                              #
 # **
 # ************************************************************************** #
@@ -33,9 +33,9 @@ all : $(NAME)
 $(NAME) : $(OBJS) $(HEADER)
 	@$(AR) $(NAME) $(OBJS)
 
-%.o : %.c $(HEADER)
+%.o : %.c
 	@$(CFLAGS) -c $< -o $@
-#	@echo "$(GREEN)File $< compiled $(END)"
+	@echo "$(GREEN)File $< compiled $(END)"
 
 clean:
 	@$(RM) $(OBJS)

@@ -27,7 +27,7 @@ static char	*ft_next(char *buffer)
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	line = malloc((ft_strlen(buffer) - i + 1) * sizeof(char));
+	line = malloc((gnl_strlen(buffer) - i + 1) * sizeof(char));
 	if (!line)
 		return (ft_free(&buffer, NULL));
 	j = 0;
@@ -83,8 +83,8 @@ static char	*read_file(int fd, char *strg)
 		else if (bytes > 0)
 		{
 			buffer[bytes] = '\0';
-			strg = ft_strjoin(strg, buffer);
-			if (ft_strchr(buffer, '\n'))
+			strg = gnl_strjoin(strg, buffer);
+			if (gnl_strchr(buffer, '\n'))
 				break ;
 		}
 	}
