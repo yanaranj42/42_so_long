@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 14:31:44 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/15 16:04:18 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:05:31 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ t_info	init_info(void)
 int main(int ac, char **av)
 {
 	t_info	game;
+	t_img	img;
 
 	game = init_info();
-	get_map(ac, av, &game);
-	printf("WIP...\n");
+	if (!get_final_map(ac, av, &game))
+		return (0);
+	init_game(game, img);
 	return (0);
 }
-
-

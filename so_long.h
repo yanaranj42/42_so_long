@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/15 15:54:40 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:55:29 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ typedef struct s_info
 	int		pos_w;
 	
 	char	**map;
-}		t_info;
+}			t_info;
 
 typedef struct s_img
 {
-	int	img_width;
-	int	img_height;
+	int	img_w;
+	int	img_h;
 	int	i;
 	int	j;
 }		t_img;

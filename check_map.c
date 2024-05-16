@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/15 16:04:15 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:55:45 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	**get_map(int ac, char **av, t_info *game)
 	if (!raw_map)
 		exit_error("Error\n", 1);
 	map = ft_split(raw_map, '\n');
-	//printf("GET_MAP_map: %s\n", map[0]);
 	if (!final_map(map, game, raw_map))
 	{
 		exit_error("Invalid map\n", 1);
@@ -69,10 +68,10 @@ char	**get_map(int ac, char **av, t_info *game)
 
 void	fill_map(char **map, int y, int x, t_info *game)
 {
-	if (y < 0 || y > game->height || x < 0 || x > game->width\
+	if (y < 0 || y >= game->height || x < 0 || x >= game->width\
 			|| map[y][x] == '1' || map[y][x] == 'F')
 			return ;
-	map[y][x] = 'F';
+	map[y][x] = 'F'; 
 	fill_map(map, x - 1, y, game);
 	fill_map(map, x + 1, y, game);
 	fill_map(map, x, y - 1, game);
