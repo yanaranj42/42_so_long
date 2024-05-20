@@ -16,16 +16,29 @@ t_info	init_info(void)
 {
 	t_info game;
 
-	game.height = 0;
+	game.mlx = mlx_init();
+	game.heigth = 0;
 	game.width = 0;
 	game.collect = 0;
-	game.x = -1;
-	game.y = -1;
+	game.x = 0;
+	game.y = 0;
 	game.moves = 0;
 	game.pos_h = 32;
 	game.pos_w = 32;
 	game.map = NULL;
 	return (game);
+}
+t_img	init_img(void)
+{
+	t_img	img;
+
+	img.img_w = 32;
+
+	img.img_h = 32;
+	img.i = -1;
+	img.j = -1;
+
+	return (img);
 }
 
 int main(int ac, char **av)
@@ -34,8 +47,10 @@ int main(int ac, char **av)
 	t_img	img;
 
 	game = init_info();
+	img = init_img();
 	if (!get_final_map(ac, av, &game))
 		return (0);
-	init_game(game, img);
+	printf("HELLO WORLD");
+	init_game(&game, &img);
 	return (0);
 }

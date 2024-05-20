@@ -32,9 +32,9 @@ int	is_rectangular(char **map, t_info *game)
 			return (0);
 		j++;
 	}
-	game->height = j;
+	game->heigth = j;
 	printf("ancho: %i\n", game->width);
-	printf("altura: %i\n", game->height);
+	printf("altura: %i\n", game->heigth);
 	return (1);
 }
 /* raw_map es una string(antes de splitear map). Hacemos un bucle que mire si
@@ -80,11 +80,11 @@ int	is_closed(char *raw_map)
 
 int	min_size(t_info *game)
 {
-	if (game->height < 3 || game->width < 3)
+	if (game->heigth < 3 || game->width < 3)
 		return (0);
-	if (game->height > 40 || game->width > 76)
+	if (game->heigth > 40 || game->width > 76)
 		return (0);
-	if (game->height * game->width < 15)
+	if (game->heigth * game->width < 15)
 		return (0);
 	return (1);
 }

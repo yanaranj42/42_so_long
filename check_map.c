@@ -68,7 +68,7 @@ char	**get_map(int ac, char **av, t_info *game)
 
 void	fill_map(char **map, int y, int x, t_info *game)
 {
-	if (y < 0 || y >= game->height || x < 0 || x >= game->width\
+	if (y < 0 || y >= game->heigth || x < 0 || x >= game->width\
 			|| map[y][x] == '1' || map[y][x] == 'F')
 			return ;
 	map[y][x] = 'F'; 

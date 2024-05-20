@@ -24,16 +24,22 @@
 
 typedef struct s_info
 {
-	int		height;
+	void		*mlx;
+	void		*window;
+	char		**map;
+	int		heigth;
 	int		width;
-	int		collect;
 	int		x;
 	int		y;
 	int		moves;
+	int		collect;
 	int		pos_h;
 	int		pos_w;
+	void	*img;
+	void	*ground;
+	void	*bush;
+	void	*honey;
 	
-	char	**map;
 }			t_info;
 
 typedef struct s_img
@@ -54,6 +60,7 @@ char	*get_raw_map(char *map_path);
 //		--errors.c--		//
 char	*free_map(char **map);
 void	exit_error(char *msg, int flag);
+int		error_exit(t_info *game);
 
 //		--SL_utils.c--		//
 int		num_strchr(char *str, char c);
@@ -66,5 +73,9 @@ int		is_rectangular(char **map, t_info *game);
 int		is_closed(char *raw_map);
 int		min_size(t_info *game);
 int		min_type_char(char *raw_map, t_info *game);
+
+//		--window_management.c--		//
+void	init_game(t_info *game, t_img *img);
+void	put_img_struct(t_info *game, t_img *img);
 
 #endif

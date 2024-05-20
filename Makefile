@@ -25,7 +25,7 @@ RM = rm -rf
 
 HEADER = Makefile so_long.h
 
-SRCS = so_long_main.c check_map.c errors.c so_long_utils.c parsing_map.c
+SRCS = so_long_main.c check_map.c errors.c so_long_utils.c parsing_map.c window_management.c
 OBJS = $(SRCS:%.c=%.o)
 DEPS = $(SRCS:%.c=%.d)
 

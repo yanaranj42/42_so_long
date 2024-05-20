@@ -29,3 +29,11 @@ char	*free_map(char **map)
 	free(map);
 	return (0);
 }
+
+int	error_exit(t_info *game)
+{
+	write(2, "Error\n", 7);
+	free_map(game->map);
+	mlx_destroy_window(game->mlx, game->window);
+	exit(0);
+}
