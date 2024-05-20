@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/16 12:55:29 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:36:22 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct s_info
 	void	*ground;
 	void	*bush;
 	void	*honey;
+	void	*portal;
+	void	*bear_r;
+	void	*bear_l;
 	
 }			t_info;
 
@@ -77,5 +80,5 @@ int		min_type_char(char *raw_map, t_info *game);
 //		--window_management.c--		//
 void	init_game(t_info *game, t_img *img);
 void	put_img_struct(t_info *game, t_img *img);
-
+void	put_img_struct_player(t_info *game, t_img *img);
 #endif

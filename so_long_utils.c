@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:15:58 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/15 16:00:36 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:31:16 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	map_strchr(char **map, char c)
 	j = -1;
 	while (map[++j])
 		n += num_strchr(map[j], c);
-	return (j);
+	return (n);
 }
 int	num_strchr(char *str, char c)
 {
@@ -30,7 +30,7 @@ int	num_strchr(char *str, char c)
 	n = 0;
 	while (*str)
 	{
-		if (*str == (char)c)
+		if (*str == c)
 			n++;
 		str++;
 	}
@@ -39,6 +39,7 @@ int	num_strchr(char *str, char c)
 
 void	p_pos(t_info *game)
 {
+//	printf("P_POS: %s\n", game->map[++game->y]);
 	while (game->map[++game->y])
 	{
 		game->x = 0;

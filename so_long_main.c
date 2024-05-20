@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 14:31:44 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/16 13:05:31 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:46:23 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_info	init_info(void)
 	game.width = 0;
 	game.collect = 0;
 	game.x = 0;
-	game.y = 0;
+	game.y = -1;
 	game.moves = 0;
 	game.pos_h = 32;
 	game.pos_w = 32;
@@ -35,8 +35,8 @@ t_img	init_img(void)
 	img.img_w = 32;
 
 	img.img_h = 32;
-	img.i = -1;
-	img.j = -1;
+	img.i = 0;
+	img.j = 0;
 
 	return (img);
 }

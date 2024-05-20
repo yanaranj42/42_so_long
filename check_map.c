@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/16 12:55:45 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:25:42 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ char	**get_map(int ac, char **av, t_info *game)
 	return (map);
 }
 
-void	fill_map(char **map, int y, int x, t_info *game)
+void	fill_map(char **map, int x, int y, t_info *game)
 {
-	if (y < 0 || y >= game->heigth || x < 0 || x >= game->width\
+	if (x < 0 || x > game->width || y < 0 || y > game->heigth\
 			|| map[y][x] == '1' || map[y][x] == 'F')
 			return ;
 	map[y][x] = 'F'; 
@@ -82,7 +82,7 @@ char	**get_final_map(int ac, char **av, t_info *game)
 {
 	game->map = get_map(ac, av, game);
 	p_pos(game);
-	fill_map(game->map, game->y, game->x, game);
+	fill_map(game->map, game->x, game->y, game);
 	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
 	{
 		write(1, "Error\tInvalid Exit\n", 20);
