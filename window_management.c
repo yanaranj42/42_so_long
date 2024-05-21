@@ -1,4 +1,14 @@
-//Header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_management.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 13:41:05 by yanaranj          #+#    #+#             */
+/*   Updated: 2024/05/21 13:41:10 by yanaranj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -27,11 +37,11 @@ void	put_img_struct(t_info *game, t_img *img)
 
 void	put_img_struct_player(t_info *game, t_img *img)
 {
-	game->bear_l = mlx_xpm_file_to_image(game->mlx, "textures\bear_l.xpm", &img->img_w,\
+	game->bear_l = mlx_xpm_file_to_image(game->mlx, "textures/player/bear_l.xpm", &img->img_w,\
 		&img->img_h);
 	if (game->bear_l == NULL)
 		error_exit(game);
-	game->bear_r = mlx_xpm_file_to_image(game->mlx, "textures\bear_r.xpm", &img->img_w,\
+	game->bear_r = mlx_xpm_file_to_image(game->mlx, "textures/player/bear_r.xpm", &img->img_w,\
 		&img->img_h);
 	if(game->bear_r == NULL)
 		error_exit(game);
@@ -53,7 +63,7 @@ void	put_background(t_info *game, t_img *img)
 	}
 }
 
-void	put_img(t_info *game, t_img *img)
+void	get_image(t_info *game, t_img *img)
 {
 	img->j = 0;
 	while (game->map[img->j])
@@ -62,16 +72,34 @@ void	put_img(t_info *game, t_img *img)
 		while (game->map[img->j][img->i])
 		{
 			if (game->map[img->j][img->i] == '1')
-				mlx_put_image_to_window(game->mlx, )//ESTAS AQUI
+				mlx_put_image_to_window(game->mlx, game->window, game->bush,\
+					img->i * img->img_w, img->j * img->img_h);
+			if (game->map[img->j][img->i] == 'C')
+				mlx_put_image_to_window(game->mlx, game->window, game->honey,\
+				img->i * img->img_w, img->j * img->img_h);
+			if (game->map[img->j][img->i] == 'P')
+				mlx_put_image_to_window(game->mlx, game->window, game->bear_r,\
+					img->i * img->img_w, img->j * img->img_h);
+			if (game->map[img->j][img->i] == 'E')
+				mlx_put_image_to_window(game->mlx, game->window, game->portal,
+					img->i * img->img_w, img->j * img->img_h);
+			img->i++;
 		}
+		img->j++;
 	}
 }
 
 void	init_game(t_info *game, t_img *img)
 {
+	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, game->width * img->img_w,\
-game->heigth * img->img_h, "PedroP");
+		game->heigth * img->img_h, "PedroP");
 	put_img_struct(game, img);
 	put_background(game, img);
-	put_images(game, img);
+	get_image(game, img);
+	p_pos(game);
+	printf("HE LLEGADO\n");
+	mlx_hook(game->window, 02, 1L << 0, key_press, game);
+	mlx_hook(game->window, 17, 1L << 2, exit_me, game);
+	mlx_loop(game->mlx);
 }

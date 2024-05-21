@@ -85,7 +85,7 @@ char	**get_final_map(int ac, char **av, t_info *game)
 	fill_map(game->map, game->x, game->y, game);
 	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
 	{
-		write(1, "Error\tInvalid Exit\n", 20);
+		write(1, "Error\nInvalid Exit\n", 20);
 		free_map(game->map);
 		return (NULL);
 	}

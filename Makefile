@@ -6,7 +6,7 @@
 #    By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 14:07:07 by yanaranj          #+#    #+#              #
-#    Updated: 2024/05/20 17:30:12 by yanaranj         ###   ########.fr        #
+#    Updated: 2024/05/21 14:10:56 by yanaranj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ RM = rm -rf
 HEADER = Makefile so_long.h
 
 SRCS = so_long_main.c check_map.c errors.c so_long_utils.c parsing_map.c \
-	   window_management.c
+	   window_management.c game_management.c
 OBJS = $(SRCS:%.c=%.o)
 DEPS = $(SRCS:%.c=%.d)
 

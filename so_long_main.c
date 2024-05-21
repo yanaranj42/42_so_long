@@ -50,7 +50,6 @@ int main(int ac, char **av)
 	img = init_img();
 	if (!get_final_map(ac, av, &game))
 		return (0);
-	printf("HELLO WORLD");
 	init_game(&game, &img);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/20 17:36:22 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:20:07 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char	*get_raw_map(char *map_path);
 char	*free_map(char **map);
 void	exit_error(char *msg, int flag);
 int		error_exit(t_info *game);
+int		exit_me(t_info *game);
 
 //		--SL_utils.c--		//
 int		num_strchr(char *str, char c);
@@ -81,4 +82,10 @@ int		min_type_char(char *raw_map, t_info *game);
 void	init_game(t_info *game, t_img *img);
 void	put_img_struct(t_info *game, t_img *img);
 void	put_img_struct_player(t_info *game, t_img *img);
+void	put_background(t_info *game, t_img *img);
+void	get_image(t_info *game, t_img *img);
+
+//		--game_management.c--		//
+int key_press(int keycode, t_info *game);
+
 #endif

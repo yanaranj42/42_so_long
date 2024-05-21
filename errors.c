@@ -37,3 +37,9 @@ int	error_exit(t_info *game)
 	mlx_destroy_window(game->mlx, game->window);
 	exit(0);
 }
+int	exit_me(t_info *game)
+{
+	free_map(game->map);
+	mlx_destroy_window(game->mlx, game->window);
+	exit(0);
+}
