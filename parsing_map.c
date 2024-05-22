@@ -33,8 +33,8 @@ int	is_rectangular(char **map, t_info *game)
 		j++;
 	}
 	game->heigth = j;
-	printf("ancho: %i\n", game->width);
-	printf("altura: %i\n", game->heigth);
+//	printf("ancho: %i\n", game->width);
+//	printf("altura: %i\n", game->heigth);
 	return (1);
 }
 /* raw_map es una string(antes de splitear map). Hacemos un bucle que mire si

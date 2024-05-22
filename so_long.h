@@ -24,9 +24,9 @@
 
 typedef struct s_info
 {
-	void		*mlx;
-	void		*window;
-	char		**map;
+	void	*mlx;
+	void	*window;
+	char	**map;
 	int		heigth;
 	int		width;
 	int		x;
@@ -42,6 +42,8 @@ typedef struct s_info
 	void	*portal;
 	void	*bear_r;
 	void	*bear_l;
+	void	*bear_up;
+	void	*bear_down;
 	
 }			t_info;
 
@@ -65,11 +67,13 @@ char	*free_map(char **map);
 void	exit_error(char *msg, int flag);
 int		error_exit(t_info *game);
 int		exit_me(t_info *game);
+int		exit_win(t_info *game);
 
 //		--SL_utils.c--		//
 int		num_strchr(char *str, char c);
 int		map_strchr(char **map, char c);
 void	p_pos(t_info *game);
+void	print_moves(t_info *game);
 
 //		--parsing_map--		// OK
 int		final_map(char **map, t_info *game, char *raw_map);
@@ -86,6 +90,9 @@ void	put_background(t_info *game, t_img *img);
 void	get_image(t_info *game, t_img *img);
 
 //		--game_management.c--		//
-int key_press(int keycode, t_info *game);
-
+int		key_press(int keycode, t_info *game);
+void    move_up(t_info *game);
+void    move_down(t_info *game);
+void    move_left(t_info *game);
+void    move_rigth(t_info *game);
 #endif

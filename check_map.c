@@ -53,7 +53,7 @@ char	**get_map(int ac, char **av, t_info *game)
 	if (ac != 2 || !check_name(av[1]))
 		exit_error("Invalid arguments\n", 1);
 	raw_map = get_raw_map(av[1]);
-	printf("GET_MAP_row:\n%s\n", raw_map);
+//	printf("GET_MAP_row:\n%s\n", raw_map);
 	if (!raw_map)
 		exit_error("Error\n", 1);
 	map = ft_split(raw_map, '\n');

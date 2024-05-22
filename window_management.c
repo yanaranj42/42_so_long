@@ -98,7 +98,7 @@ void	init_game(t_info *game, t_img *img)
 	put_background(game, img);
 	get_image(game, img);
 	p_pos(game);
-	printf("HE LLEGADO\n");
+	//printf("HE LLEGADO\n");
 	mlx_hook(game->window, 02, 1L << 0, key_press, game);
 	mlx_hook(game->window, 17, 1L << 2, exit_me, game);
 	mlx_loop(game->mlx);

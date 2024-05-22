@@ -43,3 +43,11 @@ int	exit_me(t_info *game)
 	mlx_destroy_window(game->mlx, game->window);
 	exit(0);
 }
+
+int	exit_win(t_info *game)
+{
+	write(1, "YOU WIN!\n", 10);
+	free_map(game->map);
+	mlx_destroy_window(game->mlx, game->window);
+	exit(1);
+}

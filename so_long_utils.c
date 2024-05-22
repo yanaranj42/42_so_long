@@ -39,7 +39,8 @@ int	num_strchr(char *str, char c)
 
 void	p_pos(t_info *game)
 {
-//	printf("P_POS: %s\n", game->map[++game->y]);
+	game->x = 0;
+	game->y = 0;
 	while (game->map[++game->y])
 	{
 		game->x = 0;
@@ -52,4 +53,9 @@ void	p_pos(t_info *game)
 		if (game->map[game->y][game->x] == 'P')
 			break ;
 	}
+}
+
+void	print_moves(t_info *game)
+{
+	printf("\rMOVES: %d\n", game->moves);
 }
