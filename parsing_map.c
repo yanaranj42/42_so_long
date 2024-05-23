@@ -33,20 +33,9 @@ int	is_rectangular(char **map, t_info *game)
 		j++;
 	}
 	game->heigth = j;
-//	printf("ancho: %i\n", game->width);
-//	printf("altura: %i\n", game->heigth);
 	return (1);
 }
-/* raw_map es una string(antes de splitear map). Hacemos un bucle que mire si
- * la primera parte de string es 1, en caso contrario, es error porque el mapa
- * no esta cerrado.
- * y al salir del bucle, saltamos en \n en el que nos encontramos
- * Si la enterior pos fue \n y lo que lee no es 1, sal de la funcion
- * o* bucle para check a la inversa si toda la parte final del str son todos 1.
- * finalizara cuando encuentre un \n y y significa que el mapa es valido
- * si la la pos siguiente es \n y la pos actual no es 1, sal de la funcion
- */
- 
+
 int	is_closed(char *raw_map)
 {
 	int	i;

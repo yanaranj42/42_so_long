@@ -18,7 +18,6 @@ void    move_up(t_info *game)
     {
         if (game->map[game->y][game->x] == 'C')
         {
-           // printf("COLLECT: %d\n", game->collect);
             game->collect--;
             game->map[game->y][game->x] = '0';
         }
@@ -76,16 +75,17 @@ void    move_left(t_info *game)
         print_moves(game);
         if (game->map[game->y][game->x] == 'E' && game->collect == 0)
             exit_win(game);
-        if (game->map[game->y][game->y] != 'E')
+        if (game->map[game->y][game->x] != 'E')
+        {
             mlx_put_image_to_window(game->mlx, game->window, game->bear_l,\
                 game->x * game->pos_w, game->y * game->pos_h);
+        }
     }
 }
 
 void    move_rigth(t_info *game)
 {
-    printf("move_Rx: %d\n", game->x);
-    if (game->map[game->y][game->x + 1] != '1')
+    if (game->map[game->y][game->x + 1]  != '1')
     {
         if (game->map[game->y][game->x] == 'C')
         {
@@ -93,16 +93,20 @@ void    move_rigth(t_info *game)
             game->map[game->y][game->x] = '0';
         }
         if (game->map[game->y][game->x] != 'E')
+        {
             mlx_put_image_to_window(game->mlx, game->window, game->ground,\
                 game->x * game->pos_w, game->y * game->pos_h);
+        }
         game->x++;
         game->moves++;
         print_moves(game);
         if (game->map[game->y][game->x] == 'E' && game->collect == 0)
             exit_win(game);
-        if (game->map[game->y][game->y] != 'E')
+        if (game->map[game->y][game->x] != 'E')
+        {
             mlx_put_image_to_window(game->mlx, game->window, game->bear_r,\
-                game->x * game->pos_w, game->y * game->pos_h);
+                 game->x * game->pos_w, game->y * game->pos_h);
+        }
     }
 }
 

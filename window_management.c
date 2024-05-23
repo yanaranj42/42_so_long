@@ -45,7 +45,14 @@ void	put_img_struct_player(t_info *game, t_img *img)
 		&img->img_h);
 	if(game->bear_r == NULL)
 		error_exit(game);
-	//WIP...
+	game->bear_down = mlx_xpm_file_to_image(game->mlx, "textures/player/bear_down.png",\
+		&img->img_w, &img->img_h);
+	if (game->bear_down == NULL)
+		error_exit(game);
+	game->bear_up = mlx_xpm_file_to_image(game->mlx, "textures/player/bear_up.png", &img->img_w,\
+		&img->img_h);
+	if (game->bear_up == NULL)
+		error_exit(game);
 }
 
 void	put_background(t_info *game, t_img *img)
@@ -98,7 +105,6 @@ void	init_game(t_info *game, t_img *img)
 	put_background(game, img);
 	get_image(game, img);
 	p_pos(game);
-	//printf("HE LLEGADO\n");
 	mlx_hook(game->window, 02, 1L << 0, key_press, game);
 	mlx_hook(game->window, 17, 1L << 2, exit_me, game);
 	mlx_loop(game->mlx);

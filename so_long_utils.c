@@ -57,5 +57,10 @@ void	p_pos(t_info *game)
 
 void	print_moves(t_info *game)
 {
-	printf("\rMOVES: %d\n", game->moves);
+	char	*moves;
+
+	moves = ft_itoa(game->moves);
+	write(1, "Moves: ", 8);
+	write(1, moves, ft_strlen(moves));
+	write(1, "\n", 2);
 }
