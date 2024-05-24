@@ -14,7 +14,7 @@
 
 int	map_strchr(char **map, char c)
 {
-	int n;
+	int	n;
 	int	j;
 
 	n = 0;
@@ -23,6 +23,7 @@ int	map_strchr(char **map, char c)
 		n += num_strchr(map[j], c);
 	return (n);
 }
+
 int	num_strchr(char *str, char c)
 {
 	int	n;
@@ -60,7 +61,10 @@ void	print_moves(t_info *game)
 	char	*moves;
 
 	moves = ft_itoa(game->moves);
+	if (!moves)
+		return ;
 	write(1, "Moves: ", 8);
 	write(1, moves, ft_strlen(moves));
 	write(1, "\n", 2);
+	free(moves);
 }

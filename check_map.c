@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/20 16:25:42 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:46:45 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_raw_map(char *map_path)
 	int		fd;
 	char	*line;
 	char	*raw_map;
-	
+
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
@@ -67,10 +67,10 @@ char	**get_map(int ac, char **av, t_info *game)
 
 void	fill_map(char **map, int x, int y, t_info *game)
 {
-	if (x < 0 || x > game->width || y < 0 || y > game->heigth\
+	if (x < 0 || x > game->width || y < 0 || y > game->heigth \
 			|| map[y][x] == '1' || map[y][x] == 'F')
-			return ;
-	map[y][x] = 'F'; 
+		return ;
+	map[y][x] = 'F';
 	fill_map(map, x - 1, y, game);
 	fill_map(map, x + 1, y, game);
 	fill_map(map, x, y - 1, game);

@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 14:31:44 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/20 17:46:23 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:31:23 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_info	init_info(void)
 {
-	t_info game;
+	t_info	game;
 
 	game.mlx = mlx_init();
 	game.heigth = 0;
@@ -28,20 +28,19 @@ t_info	init_info(void)
 	game.map = NULL;
 	return (game);
 }
+
 t_img	init_img(void)
 {
 	t_img	img;
 
 	img.img_w = 32;
-
 	img.img_h = 32;
 	img.i = 0;
 	img.j = 0;
-
 	return (img);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_info	game;
 	t_img	img;

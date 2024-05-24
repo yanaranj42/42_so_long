@@ -44,7 +44,6 @@ typedef struct s_info
 	void	*bear_l;
 	void	*bear_up;
 	void	*bear_down;
-	
 }			t_info;
 
 typedef struct s_img
@@ -91,8 +90,8 @@ void	get_image(t_info *game, t_img *img);
 
 //		--game_management.c--		//
 int		key_press(int keycode, t_info *game);
-void    move_up(t_info *game);
-void    move_down(t_info *game);
-void    move_left(t_info *game);
-void    move_rigth(t_info *game);
+void	move_up(t_info *game);
+void	move_down(t_info *game);
+void	move_left(t_info *game);
+void	move_rigth(t_info *game);
 #endif

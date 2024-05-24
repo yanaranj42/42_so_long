@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:11:19 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/20 16:21:01 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:30:44 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	is_closed(char *raw_map)
 	int	i;
 
 	i = 0;
-
 	while (raw_map[i] != '\n')
 	{
 		if (raw_map[i] != '1')
@@ -49,11 +48,10 @@ int	is_closed(char *raw_map)
 		i++;
 	}
 	i++;
-
 	while (raw_map[i])
 	{
 		if ((raw_map[i - 1] == '\n' && raw_map[i] != '1')
-				|| (raw_map[i + 1] == '\n' && raw_map[i] != '1'))
+			|| (raw_map[i + 1] == '\n' && raw_map[i] != '1'))
 			return (0);
 		i++;
 	}
@@ -78,10 +76,6 @@ int	min_size(t_info *game)
 	return (1);
 }
 
-/* miramos en toda la string si hay chars diferentes a P, E, C, 0, 1.
- * luego check que solo haya 1 P y 1 E
- * check que al menos haya 1 C, so no, no un map valido
- */
 int	min_type_char(char *raw_map, t_info *game)
 {
 	int	i;
