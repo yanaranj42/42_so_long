@@ -40,27 +40,23 @@ int	is_closed(char *raw_map)
 {
 	int	i;
 
-	i = 0;
-	while (raw_map[i] != '\n')
+	i = -1;
+	while (raw_map[++i] != '\n')
 	{
 		if (raw_map[i] != '1')
 			return (0);
-		i++;
 	}
-	i++;
-	while (raw_map[i])
+	while (raw_map[++i])
 	{
 		if ((raw_map[i - 1] == '\n' && raw_map[i] != '1')
 			|| (raw_map[i + 1] == '\n' && raw_map[i] != '1'))
 			return (0);
-		i++;
 	}
 	i--;
-	while (raw_map[i] != '\n')
+	while (raw_map[--i] != '\n')
 	{
 		if (raw_map[i] != '1')
 			return (0);
-		i--;
 	}
 	return (1);
 }

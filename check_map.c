@@ -29,7 +29,7 @@ char	*get_raw_map(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		return (NULL);
+		exit_error("Error opening file\n", 20);
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
