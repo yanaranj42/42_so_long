@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/30 16:26:04 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:32:03 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*get_raw_map(char *map_path)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	free(line);
 	return (raw_map);
 }
 
@@ -83,17 +84,20 @@ void	fill_map(char **map, int x, int y, t_info *game)
 
 char	**get_final_map(int ac, char **av, t_info *game)
 {
+	char	**cp_map;
+
 	game->map = get_map(ac, av, game);
+	cp_map = get_map(ac, av, game);
 	p_pos(game);
-	fill_map(game->map, game->x, game->y, game);
+	fill_map(cp_map, game->x, game->y, game);
 //	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
 	if (game->ncollect != game->collect || game->nexit != 1)
 	{
 		write(1, "Error\nInvalid Exit\n", 20);
 		free_map(game->map);
+		free_map(cp_map);
 		return (NULL);
 	}
-	free_map(game->map);
-	game->map = get_map(ac, av, game);
+	free_map(cp_map);
 	return (game->map);
 }

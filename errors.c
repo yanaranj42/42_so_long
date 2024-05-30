@@ -12,8 +12,6 @@
 
 #include "so_long.h"
 
-//SALIDA JUNTO CON LA FLAG
-
 char	*free_map(char **map)
 {
 	int	j;
