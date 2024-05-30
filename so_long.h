@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:24 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/21 12:20:07 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:24:46 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_info
 	void	*bear_l;
 	void	*bear_up;
 	void	*bear_down;
+	int		ncollect;
+	int		nexit;
 }			t_info;
 
 typedef struct s_img

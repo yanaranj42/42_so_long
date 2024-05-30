@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/24 16:46:45 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:26:04 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void	fill_map(char **map, int x, int y, t_info *game)
 	if (x < 0 || x > game->width || y < 0 || y > game->heigth \
 			|| map[y][x] == '1' || map[y][x] == 'F')
 		return ;
+	if (game->map[y][x] == 'C')
+		game->ncollect++;
+	if (game->map[y][x] == 'E')
+		game->nexit++;
 	map[y][x] = 'F';
 	fill_map(map, x - 1, y, game);
 	fill_map(map, x + 1, y, game);
@@ -82,7 +86,8 @@ char	**get_final_map(int ac, char **av, t_info *game)
 	game->map = get_map(ac, av, game);
 	p_pos(game);
 	fill_map(game->map, game->x, game->y, game);
-	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
+//	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
+	if (game->ncollect != game->collect || game->nexit != 1)
 	{
 		write(1, "Error\nInvalid Exit\n", 20);
 		free_map(game->map);

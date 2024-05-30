@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 14:31:44 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/24 17:31:23 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:25:08 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_info	init_info(void)
 	game.pos_h = 32;
 	game.pos_w = 32;
 	game.map = NULL;
+	game.ncollect = 0;
+	game.nexit = 0;
 	return (game);
 }
 
