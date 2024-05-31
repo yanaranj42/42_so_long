@@ -6,7 +6,7 @@
 /*   By: yanaranj <yanaranj@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:01:05 by yanaranj          #+#    #+#             */
-/*   Updated: 2024/05/30 16:32:03 by yanaranj         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:08:15 by yanaranj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*get_raw_map(char *map_path)
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
+	if (line[0] != '1')
+		return (NULL);
 	raw_map = malloc(sizeof(char *) * 1);
 	if (!raw_map)
 		return (NULL);
@@ -57,7 +59,7 @@ char	**get_map(int ac, char **av, t_info *game)
 		exit_error("Invalid arguments\n", 1);
 	raw_map = get_raw_map(av[1]);
 	if (!raw_map)
-		exit_error("Error\n", 1);
+		exit_error("Error getting map\n", 1);
 	map = ft_split(raw_map, '\n');
 	if (!final_map(map, game, raw_map))
 	{
