@@ -16,7 +16,6 @@ t_info	init_info(void)
 {
 	t_info	game;
 
-	// game.mlx = mlx_init();
 	game.heigth = 0;
 	game.width = 0;
 	game.collect = 0;

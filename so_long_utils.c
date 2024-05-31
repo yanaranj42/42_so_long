@@ -12,18 +12,6 @@
 
 #include "so_long.h"
 
-int	map_strchr(char **map, char c)
-{
-	int	n;
-	int	j;
-
-	n = 0;
-	j = -1;
-	while (map[++j])
-		n += num_strchr(map[j], c);
-	return (n);
-}
-
 int	num_strchr(char *str, char c)
 {
 	int	n;

@@ -72,7 +72,6 @@ int		exit_win(t_info *game);
 
 //		--SL_utils.c--		//
 int		num_strchr(char *str, char c);
-int		map_strchr(char **map, char c);
 void	p_pos(t_info *game);
 void	print_moves(t_info *game);
 
