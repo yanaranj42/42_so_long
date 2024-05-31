@@ -34,6 +34,8 @@ char	*get_raw_map(char *map_path)
 	if (!line)
 		return (NULL);
 	raw_map = malloc(sizeof(char *) * 1);
+	if (!raw_map)
+		return (NULL);
 	raw_map[0] = '\0';
 	while (line)
 	{
@@ -90,10 +92,10 @@ char	**get_final_map(int ac, char **av, t_info *game)
 	cp_map = get_map(ac, av, game);
 	p_pos(game);
 	fill_map(cp_map, game->x, game->y, game);
-//	if (map_strchr(game->map, 'E') > 0 || map_strchr(game->map, 'C') > 0)
+// if (map_strchr(cp_map, 'E') > 0 || map_strchr(cp_map, 'C') > 0) //podemos eliminar esta funcion
 	if (game->ncollect != game->collect || game->nexit != 1)
 	{
-		write(1, "Error\nInvalid Exit\n", 20);
+		write(1, "Error\nInvalid Path\n", 20);
 		free_map(game->map);
 		free_map(cp_map);
 		return (NULL);

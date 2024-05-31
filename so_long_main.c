@@ -16,7 +16,7 @@ t_info	init_info(void)
 {
 	t_info	game;
 
-	game.mlx = mlx_init();
+	// game.mlx = mlx_init();
 	game.heigth = 0;
 	game.width = 0;
 	game.collect = 0;
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 
 	game = init_info();
 	img = init_img();
-	if (!get_final_map(ac, av, &game))
+	if (get_final_map(ac, av, &game) == NULL)
 		return (0);
 	init_game(&game, &img);
 	return (0);

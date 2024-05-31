@@ -98,6 +98,7 @@ void	get_image(t_info *game, t_img *img)
 
 void	init_game(t_info *game, t_img *img)
 {
+	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, game->width * img->img_w, \
 		game->heigth * img->img_h, "PedroP");
 	put_img_struct(game, img);
